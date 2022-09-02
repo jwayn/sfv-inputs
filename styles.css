@@ -1,0 +1,181 @@
+:root {
+    --shadow-color: 0deg 0% 0%;
+    --shadow-elevation-low:
+        0px 0.3px 0.3px hsl(var(--shadow-color) / 0.1),
+        0px 0.6px 0.7px -1.2px hsl(var(--shadow-color) / 0.1),
+        0px 1.4px 1.6px -2.5px hsl(var(--shadow-color) / 0.1);
+    --shadow-elevation-medium:
+        0px 0.3px 0.3px hsl(var(--shadow-color) / 0.11),
+        0px 1.1px 1.2px -0.8px hsl(var(--shadow-color) / 0.11),
+        0px 2.9px 3.3px -1.7px hsl(var(--shadow-color) / 0.11),
+        0px 7px 7.9px -2.5px hsl(var(--shadow-color) / 0.11);
+    --shadow-elevation-high:
+        0px 0.3px 0.3px hsl(var(--shadow-color) / 0.1),
+        0px 2px 2.3px -0.4px hsl(var(--shadow-color) / 0.1),
+        0px 3.8px 4.3px -0.7px hsl(var(--shadow-color) / 0.1),
+        0px 6.3px 7.1px -1.1px hsl(var(--shadow-color) / 0.1),
+        0px 10px 11.3px -1.4px hsl(var(--shadow-color) / 0.1),
+        0px 15.6px 17.5px -1.8px hsl(var(--shadow-color) / 0.1),
+        0.1px 23.7px 26.7px -2.1px hsl(var(--shadow-color) / 0.1),
+        0.1px 35px 39.4px -2.5px hsl(var(--shadow-color) / 0.1);
+}
+
+html {
+    background-color: indigo;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+.page-container {
+    display: flex;
+}
+
+main {
+    flex: 1;
+    padding: 40px;
+}
+
+.human-input {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    overflow: hidden;
+    padding: 16px;
+    min-width: 32px;
+    width: auto;
+    background: linear-gradient(to right, rgba(0,0,0,.5), rgba(0,0,0,0));
+}
+
+.input {
+    color: white;
+    font-size: 24px;
+    margin: 4px 0;
+    display: flex;
+    align-items: center;
+}
+
+.input > *:not(last-child) {
+    margin-inline-end: 8px;
+}
+
+.input > img {
+    width: 24px;
+    height: 24px;
+}
+
+.hitbox {
+    background-color: white;
+    width: 800px;
+    height: 350px;
+    border-radius: 4px;
+    position: relative;
+}
+
+.btn {
+    width: 47px;
+    height: 47px;
+    position: absolute;
+    border-radius: 100%;
+    box-shadow: var(--shadow-elevation-high);
+}
+
+.btn-depressed::after {
+    position: absolute;
+    content: "";
+    border-radius: 100%;
+}
+
+.btn.btn-depressed::after {
+    background-color: yellow;
+    height: 47px;
+    width: 47px;
+}
+
+#btn3.btn-depressed::after {
+    height: 59px;
+    width: 59px;
+    color: pink;
+}
+
+.btn-movement {
+    background-color: red;
+}
+
+.btn-attack {
+    background-color: white;
+}
+
+#btn0 {
+    top: 110px;
+    left: 250px;
+}
+
+#btn1 {
+    top: 110px;
+    left: 300px;
+}
+
+#btn2 {
+    top: 130px;
+    left: 350px;
+}
+
+#btn3 {
+    top: 220px;
+    left: 370px;
+    width: 59px;
+    height: 59px;
+}
+
+#btn4 {
+    left: 400px;
+    top: 110px;
+}
+
+#btn5 {
+    left: 395px;
+    top: 160px;
+}
+
+#btn6 {
+    left: 450px;
+    top: 86px;
+}
+
+#btn7 {
+    left: 445px;
+    top: 136px;
+}
+
+#btn8 {
+    left: 500px;
+    top: 91px;
+}
+
+#btn9 {
+    left: 495px;
+    top: 141px;
+}
+
+#btn10 {
+    left: 550px;
+    top: 96px;
+}
+
+#btn11 {
+    left: 545px;
+    top: 146px;
+}
+
+#fpsCounter {
+    position: absolute;
+    right: 0;
+    top: 0;
+}
