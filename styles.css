@@ -48,7 +48,7 @@ main {
     height: 100vh;
     overflow: hidden;
     padding: 16px;
-    min-width: 32px;
+    min-width: 275px;
     width: auto;
     background: linear-gradient(to right, rgba(0,0,0,.5), rgba(0,0,0,0));
 }
@@ -65,9 +65,17 @@ main {
     margin-inline-end: 8px;
 }
 
-.input > img {
+.input > div > img {
     width: 24px;
     height: 24px;
+}
+
+.input > div {
+    width: 32px;
+    height: 32px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .hitbox {
@@ -78,7 +86,7 @@ main {
     position: relative;
 }
 
-.btn {
+.hitbox .btn {
     width: 47px;
     height: 47px;
     position: absolute;
@@ -86,90 +94,90 @@ main {
     box-shadow: var(--shadow-elevation-high);
 }
 
-.btn-depressed::after {
+.hitbox .btn-depressed::after {
     position: absolute;
     content: "";
     border-radius: 100%;
 }
 
-.btn.btn-depressed::after {
+.hitbox .btn.btn-depressed::after {
     background-color: yellow;
     height: 47px;
     width: 47px;
 }
 
-#btn3.btn-depressed::after {
+.hitbox #btn3.btn-depressed::after {
     height: 59px;
     width: 59px;
     color: pink;
 }
 
-.btn-movement {
+.hitbox .btn-movement {
     background-color: red;
 }
 
-.btn-attack {
+.hitbox .btn-attack {
     background-color: white;
 }
 
-#btn0 {
+.hitbox #btn0 {
     top: 110px;
     left: 250px;
 }
 
-#btn1 {
+.hitbox #btn1 {
     top: 110px;
     left: 300px;
 }
 
-#btn2 {
+.hitbox #btn2 {
     top: 130px;
     left: 350px;
 }
 
-#btn3 {
+.hitbox #btn3 {
     top: 220px;
     left: 370px;
     width: 59px;
     height: 59px;
 }
 
-#btn4 {
+.hitbox #btn4 {
     left: 400px;
     top: 110px;
 }
 
-#btn5 {
+.hitbox #btn5 {
     left: 395px;
     top: 160px;
 }
 
-#btn6 {
+.hitbox #btn6 {
     left: 450px;
     top: 86px;
 }
 
-#btn7 {
+.hitbox #btn7 {
     left: 445px;
     top: 136px;
 }
 
-#btn8 {
+.hitbox #btn8 {
     left: 500px;
     top: 91px;
 }
 
-#btn9 {
+.hitbox #btn9 {
     left: 495px;
     top: 141px;
 }
 
-#btn10 {
+.hitbox #btn10 {
     left: 550px;
     top: 96px;
 }
 
-#btn11 {
+.hitbox #btn11 {
     left: 545px;
     top: 146px;
 }

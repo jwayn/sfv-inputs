@@ -10,7 +10,7 @@ let frameLeeway = 2;
 let totalFrames = 0;
 let framesSinceLastButton = 0;
 let animationStartTime;
-let currentTime = Date.now();
+let currentTime = performance.now();
 let timeOfLastFrame = currentTime;
 let delta = 0;
 
@@ -220,7 +220,7 @@ const motionInputs = {
 window.addEventListener("gamepadconnected", e => {
     console.log(e.gamepad);
     lastGamepadButtonState = e.gamepad.buttons;
-    animationStartTime = Date.now();
+    animationStartTime = performance.now();
     gamepadLoop();
 });
 
@@ -277,7 +277,6 @@ function gamepadLoop() {
                 newHumanInputs.push(...newAttacks);
                 // Check if we have directionals that we need to add
                 // Only check directionals if there were no directional button changes this frame
-                console.log(directionalButtonChanges.length);
                 if (directionalButtonChanges.length === 0) {
                     let directionalInput = parseDirectionalInput(buttonsPressedThisFrame.filter(button => isDirectional(button)));
                     if (directionalInput) {
@@ -337,9 +336,11 @@ function createHumanInputElement(inputs) {
     
     inputs.forEach(input => {
         if (syntax === "image" && input.type === "attacks") {
+            const div = document.createElement("div");
             const image = document.createElement("img");
             image.src = buttons[input.type][input.input][syntax];
-            inputEl.appendChild(image);
+            div.appendChild(image);
+            inputEl.appendChild(div);
         } else {
             const div = document.createElement("div");
             div.innerHTML = `${buttons[input.type][input.input][syntax]}`;
@@ -382,10 +383,10 @@ function clearHumanInput() {
 }
 
 function updateFPSCounter() {
-    document.getElementById('fpsCounter').innerHTML = Math.round(1000 / ((currentTime - animationStartTime) / totalFrames) * 100) / 100;
+    document.getElementById('fpsCounter').innerHTML = Math.round(1000 / delta * 100) / 100;
 }
 
 function updateDelta() {
-    currentTime = Date.now();
+    currentTime = performance.now();
     delta = currentTime - timeOfLastFrame;
 }
